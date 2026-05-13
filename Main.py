@@ -15,13 +15,19 @@ while True:
 
     elif opc == "2":
         dep = float(input("Cuanto deseas depositar? $"))
-        sald = sald + dep
+        if dep > 0:
+            sald = sald + dep
         print("Deposito exitoso. Nuevo saldo: $", sald)
 
     elif opc == "3":
         ret = float(input("Cuanto deseas retirar? $"))
-        sald = sald - ret
-        print("Retiro exitoso. Nuevo saldo: $", sald)
+        if ret > 0 and ret <= sald:
+            sald = sald - ret
+            print("Retiro exitoso. Nuevo saldo: $", sald)
+        elif ret > sald:
+            print("No tienes suficiente saldo para ese retiro.")
+        else:
+            print("Ingresa un monto positivo para retirar.")
 
     elif opc == "4":
         print("\n--- Opciones disponibles ---")
